@@ -53,7 +53,7 @@
           >
             Save
           </button>
-          <button class="cancel btn" v-on:click="clearForm">Cancel</button>
+          <button class="cancel btn" v-on:click.prevent="clearForm">Cancel</button>
         </div>
       </form>
     </div>
@@ -189,6 +189,8 @@ export default {
       document.location.reload();
     },
     clearForm() {
+      this.edit = false;
+      this.showForm = false;
       this.validYear = true;
       this.validName = true;
       this.validDescription = true;
